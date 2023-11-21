@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import {
-  DxButtonModule,
   DxListModule,
   DxSelectBoxModule,
   DxTileViewModule,
@@ -9,7 +8,8 @@ import {
 import { Observable } from 'rxjs';
 
 import { ProductService } from '../../services/products.service';
-import { dxItem } from 'devextreme/ui/widget/ui.widget';
+import { ListItemComponent } from './list-item/list-item.component';
+import { TilesItemComponent } from './tiles-item/tiles-item.component';
 
 @Component({
   standalone: true,
@@ -20,8 +20,9 @@ import { dxItem } from 'devextreme/ui/widget/ui.widget';
     CommonModule,
     DxSelectBoxModule,
     DxListModule,
+    ListItemComponent,
     DxTileViewModule,
-    DxButtonModule,
+    TilesItemComponent,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -32,11 +33,11 @@ export class ProductListComponent {
     { id: 'list', text: 'Lista' },
     { id: 'tiles', text: 'Kafelki' },
   ];
-  selectedView: string = 'tiles';
+  selectedView: string = 'list';
 
   productsList$: Observable<any[]> = this.productService.getProductsList();
 
-  navigateToProduct(id: number) {
-    console.log(id);
+  addToCart() {
+    console.log('add to cart');
   }
 }
