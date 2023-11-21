@@ -1,5 +1,75 @@
-<ng-container *ngIf="product$ | async as product">
-  <div>
-    <span>{{product | json}}</span>
+<div class="details-container" *ngIf="product$ | async as product; else loading">
+  <div class="details-header"><dx-button [routerLink]="['']" text="Powrót"></dx-button>
+    <buttons />
   </div>
-</ng-container>
+  <div class="product-details">
+    <div class="product-header">
+      <div class="product-icon">
+        <div class="product-icon-text">{{product.productNameShortcut}}</div>
+      </div>
+      <span class="product-name">{{product.productName}}</span>
+    </div>
+
+    <div class="details-info">
+      <span class="product-name">{{product.productName}}</span>
+      <span class="product-name">{{product.productNameDescription}}</span>
+      <p class="product-release-date">
+        data wydania wersji: <strong>{{ product.lastReleaseDate | date: 'yyyy-MM-dd'}}</strong></p>
+      <p class="product-price">
+        cena: <strong>{{ product.basePrice | number:'1.2-2'}}</strong></p>
+      <dx-button class="add-to-cart" text="Dodaj do koszyka"></dx-button>
+    </div>
+  </div>
+
+  <div class="tab-panel">
+    <dx-tab-panel class="tab-panel" [animationEnabled]="true" [swipeEnabled]="true">
+
+      <!-- Variants -->
+      <dxi-item class="product-variants tab-item" title="Dostępne warianty">
+        <p class="tab-header">Dostępne warianty</p>
+        <p>{{product.variantDescription}}</p>
+        <dx-data-grid [dataSource]="product.variants" [columns]="variantColumns" [showBorders]="true"></dx-data-grid>
+      </dxi-item>
+
+
+      <!-- Description -->
+      <dxi-item title="Opis">
+        <div class="product-description tab-item">
+          <p class="tab-header">Opis produktu</p>
+          <p>{{product.description}}</p>
+        </div>
+      </dxi-item>
+
+      <!-- Opinions -->
+      <dxi-item title=" Opinie">
+        <div class="product-opinions tab-item">
+          <p class="tab-header">Opinie o produkcie</p>
+          <dx-button class="add-opinion" text="Dodaj opinię"></dx-button>
+        </div>
+      </dxi-item>
+
+      <!-- Shippping -->
+      <dxi-item title="Dostawa">
+        <div class="product-delivery tab-item">
+          <p class="tab-header">Informacje o dostawie</p>
+          <span class="product-delivery-text">Darmowa dostawa w ciągu 24h</span>
+        </div>
+      </dxi-item>
+
+      <!-- Ask about product -->
+      <dxi-item title="Zapytaj o produkt">
+        <div class="product-ask tab-item">
+          <p class="tab-header">Formularz zapytania o produkt</p>
+          <dx-form class="form">
+            <dxi-item dataField="Email"></dxi-item>
+            <dxi-item dataField="Wiadomość" editorType="dxTextArea" [colSpan]="4"
+              [editorOptions]="{ height: 120}"></dxi-item>
+          </dx-form>
+          <dx-button class="send-msg-button" text="Wyślij"></dx-button>
+        </div>
+      </dxi-item>
+    </dx-tab-panel>
+  </div>
+</div>
+<ng-template #loading>
+  Ładowanie ...</ng-template>

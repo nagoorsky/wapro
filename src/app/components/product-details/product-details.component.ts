@@ -1,20 +1,49 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import {
+  DxButtonModule,
+  DxDataGridModule,
+  DxFormModule,
+  DxTabPanelModule,
+  DxTooltipModule,
+} from 'devextreme-angular';
+import { Observable } from 'rxjs';
+
 import { ProductService } from '../../services/products.service';
+import { ButtonsComponent } from '../../shared/buttons/buttons.component';
 
 @Component({
   standalone: true,
   selector: 'product-details',
   templateUrl: './product-details.component.html',
-  imports: [CommonModule, RouterLink],
+  styleUrls: ['./product-details.component.scss'],
+  imports: [
+    CommonModule,
+    RouterLink,
+    DxButtonModule,
+    DxTabPanelModule,
+    DxDataGridModule,
+    DxFormModule,
+    DxTooltipModule,
+    ButtonsComponent,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductDetailsComponent {
   private readonly productService = inject(ProductService);
+  private readonly activatedRoute = inject(ActivatedRoute);
+  productId = this.activatedRoute.snapshot.params['id'];
 
-  productId: number = 3;
+  variantColumns = [
+    { dataField: 'variantName', caption: 'Nazwa' },
+    { dataField: 'variantCode', caption: 'Kod' },
+    {
+      dataField: 'maxNumberOfUsers',
+      caption: 'Maksymalna liczba użytkowników',
+    },
+  ];
+
   product$: Observable<any> = this.productService.getProductDetails(
     this.productId
   );
