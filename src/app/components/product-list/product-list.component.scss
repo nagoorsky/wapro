@@ -1,3 +1,35 @@
+::ng-deep {
+  .dx-list:not(.dx-list-select-decorator-enabled)
+    .dx-list-item.dx-state-focused {
+    background-color: white !important;
+    color: black !important;
+  }
+  .dx-item.dx-list-item {
+    color: black !important;
+  }
+  .dx-state-active {
+    background-color: #f5f3f3 !important;
+    color: black !important;
+  }
+  .dx-tile.dx-state-active {
+    background-color: white !important;
+    transform: none !important;
+    transition: none !important;
+    color: black !important;
+    box-shadow: 0 0 10px #ccc !important;
+    border: 1px solid rgba(221, 221, 221, 0.6) !important;
+  }
+  .dx-tile.dx-state-focused {
+    border: 1px solid rgba(221, 221, 221, 0.6) !important;
+  }
+  .dx-tile.dx-state-hover {
+    border: 1px solid rgba(221, 221, 221, 0.6) !important;
+    box-shadow: 0 0 10px #ccc !important;
+  }
+  .dx-tile {
+    color: black !important;
+  }
+}
 .list-container {
   width: 60%;
   @media screen and (max-width: 768px) {
@@ -20,17 +52,10 @@
 .product-list {
   margin: 10px;
 }
-
+// fix this below to center tiles while maintaining responsiveness
 .tile-container {
-  height: 100vh;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: calc(5% + 25px);
 }
-// .dx-tileview {
-//   position: absolute;
-//   margin: auto;
-//   right: 0;
-//   left: 0;
-//   width: 60%;
-// }
+.loading {
+  text-align: center;
+}

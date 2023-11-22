@@ -14,4 +14,8 @@ import { ButtonsComponent } from '../../../shared/buttons/buttons.component';
 })
 export class ListItemComponent {
   @Input() product: any;
+
+  mouseClick(event: any) {
+    event.stopPropagation();
+  }
 }

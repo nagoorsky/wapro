@@ -1,16 +1,16 @@
-<div class="product-list-item">
-  <div class="product-image" [routerLink]="'product/' + product.productId">
+<div class="product-list-item" [routerLink]="'product/' + product.productId">
+  <div class="product-image">
     <div class="product-image-text">{{product.productNameShortcut}}</div>
   </div>
   <div class="product-left-box">
     <span class="product-name"><strong>{{ product.productName }}</strong></span>
     <span class="product-code">kod produktu: {{product.productCode}}</span>
-    <buttons [productId]="product.productId" />
+    <buttons class="buttons" [productId]="product.productId" />
   </div>
   <div class="product-right-box">
     cena: <span [ngStyle]="{'background-color': product.basePrice < 500 ? 'green' : 'orange'}" class="product-price">
       {{ product.basePrice }}
     </span>
-    <dx-button class="add-to-cart" text="Dodaj do koszyka"></dx-button>
+    <dx-button class="add-to-cart" text="Dodaj do koszyka" (click)="mouseClick($event)"></dx-button>
   </div>
 </div>

@@ -22,7 +22,7 @@
   </div>
 
   <div class="tab-panel">
-    <dx-tab-panel class="tab-panel" [animationEnabled]="true" [swipeEnabled]="true">
+    <dx-tab-panel class="tab-panel" [animationEnabled]="true" [swipeEnabled]="true" [focusStateEnabled]="false">
 
       <!-- Variants -->
       <dxi-item class="product-variants tab-item" title="Dostępne warianty">
@@ -30,7 +30,6 @@
         <p>{{product.variantDescription}}</p>
         <dx-data-grid [dataSource]="product.variants" [columns]="variantColumns" [showBorders]="true"></dx-data-grid>
       </dxi-item>
-
 
       <!-- Description -->
       <dxi-item title="Opis">
@@ -72,4 +71,7 @@
   </div>
 </div>
 <ng-template #loading>
-  Ładowanie ...</ng-template>
+  <div class="loading">
+    Ładowanie ...
+  </div>
+</ng-template>

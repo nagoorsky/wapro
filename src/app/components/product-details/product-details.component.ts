@@ -6,7 +6,7 @@ import {
   DxDataGridModule,
   DxFormModule,
   DxTabPanelModule,
-  DxTooltipModule,
+  DxTemplateModule,
 } from 'devextreme-angular';
 import { Observable } from 'rxjs';
 
@@ -25,8 +25,8 @@ import { ButtonsComponent } from '../../shared/buttons/buttons.component';
     DxTabPanelModule,
     DxDataGridModule,
     DxFormModule,
-    DxTooltipModule,
     ButtonsComponent,
+    DxTemplateModule,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -40,7 +40,7 @@ export class ProductDetailsComponent {
     { dataField: 'variantCode', caption: 'Kod' },
     {
       dataField: 'maxNumberOfUsers',
-      caption: 'Maksymalna liczba użytkowników',
+      caption: 'Maks. liczba użytkowników',
     },
   ];
 

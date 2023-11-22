@@ -5,14 +5,17 @@
     </dx-select-box>
   </div>
   <!-- list view -->
-  <dx-list class="product-list" *ngIf="selectedView === 'list'" [items]="productList">
-    <list-item *dxTemplate="let item of 'item'" [product]="item"></list-item>
+  <dx-list class="product-list" *ngIf="selectedView === 'list'" [items]="productList" [focusStateEnabled]="false">
+    <list-item class="list-item" *dxTemplate="let item of 'item'" [product]="item"></list-item>
   </dx-list>
 
   <!-- tiles view -->
   <dx-tile-view *ngIf="selectedView === 'tiles'" class="tile-container" [dataSource]="productList" [itemMargin]="25"
-    direction="vertical" itemTemplate="tile" height="100%" [baseItemHeight]="400" [baseItemWidth]="220">
+    [focusStateEnabled]="false" direction="vertical" itemTemplate="tile" height="100%" [baseItemHeight]="400"
+    [baseItemWidth]="220">
     <tiles-item *dxTemplate="let item of 'tile'" [product]="item"></tiles-item>
   </dx-tile-view>
-</div><ng-template #loading>
-  Ładowanie ...</ng-template>
+</div>
+<ng-template #loading>
+  <div class="loading">Ładowanie ...</div>
+</ng-template>

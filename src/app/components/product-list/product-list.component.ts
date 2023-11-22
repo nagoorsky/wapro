@@ -36,8 +36,4 @@ export class ProductListComponent {
   selectedView: string = 'list';
 
   productsList$: Observable<any[]> = this.productService.getProductsList();
-
-  addToCart() {
-    console.log('add to cart');
-  }
 }

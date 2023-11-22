@@ -11,4 +11,8 @@ import { DxTooltipModule } from 'devextreme-angular';
 })
 export class ButtonsComponent {
   @Input() productId!: number;
+
+  mouseClick(event: any) {
+    event.stopPropagation();
+  }
 }
