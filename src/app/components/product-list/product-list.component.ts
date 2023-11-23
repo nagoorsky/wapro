@@ -8,8 +8,8 @@ import {
 import { Observable } from 'rxjs';
 
 import { ProductService } from '../../services/products.service';
-import { ListItemComponent } from './list-item/list-item.component';
-import { TilesItemComponent } from './tiles-item/tiles-item.component';
+import { Product } from '../../shared/interfaces';
+import { ProductItemComponent } from './product-item/product-item.component';
 
 @Component({
   standalone: true,
@@ -20,9 +20,8 @@ import { TilesItemComponent } from './tiles-item/tiles-item.component';
     CommonModule,
     DxSelectBoxModule,
     DxListModule,
-    ListItemComponent,
     DxTileViewModule,
-    TilesItemComponent,
+    ProductItemComponent,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -35,5 +34,5 @@ export class ProductListComponent {
   ];
   selectedView: string = 'list';
 
-  productsList$: Observable<any[]> = this.productService.getProductsList();
+  productsList$: Observable<Product[]> = this.productService.getProductsList();
 }

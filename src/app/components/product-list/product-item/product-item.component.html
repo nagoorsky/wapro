@@ -1,0 +1,20 @@
+<div class="item" [routerLink]="'product/' + product.productId">
+  <div class="product-image">
+    <div class="product-image-text">{{product.productNameShortcut}}</div>
+  </div>
+  <div class="product-header">
+    <h2 class="product-name">{{product.productName}}</h2>
+    <span class="product-code">kod produktu: {{product.productCode}}</span>
+    <wapro-buttons class="buttons" [productId]="product.productId" />
+  </div>
+
+  <div class="item-price">
+    cena: <span
+      [ngStyle]="{'background-color': product.basePrice < 500 && product.basePrice !== 500 ? 'green' : 'orange'}"
+      class="product-price">
+      {{ product.basePrice }}
+    </span>
+
+    <dx-button class="add-to-cart" text="Dodaj do koszyka" (click)="handleMouseEvent($event)" />
+  </div>
+</div>

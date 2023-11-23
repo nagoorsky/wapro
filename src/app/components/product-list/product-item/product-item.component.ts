@@ -1,21 +1,22 @@
 import { CommonModule } from '@angular/common';
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { DxButtonModule } from 'devextreme-angular';
 import { ButtonsComponent } from '../../../shared/buttons/buttons.component';
+import { Product } from '../../../shared/interfaces';
+import { RouterLink } from '@angular/router';
 
 @Component({
   standalone: true,
-  selector: 'tiles-item',
-  templateUrl: './tiles-item.component.html',
-  styleUrls: ['./tiles-item.component.scss'],
+  selector: 'product-item',
+  templateUrl: './product-item.component.html',
+  styleUrls: ['./product-item.component.scss'],
   imports: [CommonModule, DxButtonModule, RouterLink, ButtonsComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TilesItemComponent {
-  @Input() product: any;
+export class ProductItemComponent {
+  @Input() product: Product;
 
-  mouseClick(event: any) {
+  handleMouseEvent(event: any) {
     event.stopPropagation();
   }
 }

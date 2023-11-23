@@ -49,13 +49,88 @@
   flex-direction: column;
   align-items: center;
 }
-.product-list {
-  margin: 10px;
-}
 // fix this below to center tiles while maintaining responsiveness
 .tile-container {
   margin-left: calc(5% + 25px);
 }
 .loading {
   text-align: center;
+}
+
+::ng-deep {
+  .product-list {
+    .buttons {
+      margin-top: auto;
+      @media screen and (max-width: 586px) {
+        margin-top: 10px;
+        margin-bottom: 20px;
+      }
+    }
+
+    .item {
+      flex-direction: row !important;
+      justify-content: space-between !important;
+      @media screen and (max-width: 586px) {
+        flex-direction: column !important;
+        align-items: center !important;
+      }
+    }
+
+    .product-image {
+      width: 20% !important;
+      padding-top: 20% !important;
+      margin: 2% !important;
+      @media screen and (max-width: 586px) {
+        width: 50% !important;
+        padding-top: 50% !important;
+        border-top-right-radius: 40px !important;
+        border-bottom-left-radius: 40px !important;
+      }
+      @media screen and (max-width: 382px) {
+        width: 65% !important;
+        padding-top: 65% !important;
+        border-top-right-radius: 45px !important;
+        border-bottom-left-radius: 45px !important;
+      }
+      @media screen and (max-width: 304px) {
+        width: 80% !important;
+        padding-top: 80% !important;
+        border-top-right-radius: 40px !important;
+        border-bottom-left-radius: 40px !important;
+      }
+    }
+
+    .product-image-text {
+      font-size: 60px !important;
+      @media screen and (min-width: 587px) and (max-width: 1208px) {
+        font-size: 50px !important;
+      }
+    }
+
+    .product-header {
+      align-items: flex-start !important;
+      margin-right: auto !important;
+      gap: 0px !important;
+      @media screen and (max-width: 586px) {
+        margin: 0px !important;
+        align-items: center !important;
+      }
+    }
+
+    .product-name {
+      font-size: 28px !important;
+      @media screen and (min-width: 587px) and (max-width: 1208px) {
+        font-size: 20px !important;
+      }
+      @media screen and (max-width: 586px) {
+        font-size: 24px !important;
+      }
+    }
+    .product-code {
+      font-size: 20px !important;
+      @media screen and (max-width: 1208px) {
+        font-size: 16px !important;
+      }
+    }
+  }
 }

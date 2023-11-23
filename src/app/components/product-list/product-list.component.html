@@ -1,22 +1,22 @@
 <div class="list-container" *ngIf="productsList$ | async as productList; else loading">
   <div class="list-header">
     <strong>Wybierz widok: </strong>
-    <dx-select-box [(value)]="selectedView" [dataSource]="viewOptions" displayExpr="text" valueExpr="id" width="145px">
-    </dx-select-box>
+    <dx-select-box [(value)]="selectedView" [dataSource]="viewOptions" displayExpr="text" valueExpr="id"
+      width="145px" />
   </div>
 
   @switch (selectedView){
   <!-- list view -->
   @case ('list'){
   <dx-list class="product-list" [items]="productList" [focusStateEnabled]="false">
-    <list-item class="list-item" *dxTemplate="let item of 'item'" [product]="item"></list-item>
+    <product-item *dxTemplate="let item of 'item'" [product]="item" />
   </dx-list>
   }
   <!-- tiles view -->
   @case ('tiles'){
   <dx-tile-view class="tile-container" [dataSource]="productList" [itemMargin]="25" [focusStateEnabled]="false"
     direction="vertical" itemTemplate="tile" height="100%" [baseItemHeight]="400" [baseItemWidth]="220">
-    <tiles-item *dxTemplate="let item of 'tile'" [product]="item"></tiles-item>
+    <product-item *dxTemplate="let item of 'tile'" [product]="item" />
   </dx-tile-view>
   }
   }
