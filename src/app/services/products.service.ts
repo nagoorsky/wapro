@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { config } from '../config';
+import { Product } from '../shared/interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -9,11 +10,11 @@ import { config } from '../config';
 export class ProductService {
   private readonly http = inject(HttpClient);
 
-  getProductsList(): Observable<any[]> {
-    return this.http.get<any[]>(config.apiUrl);
+  getProductsList(): Observable<Product[]> {
+    return this.http.get<Product[]>(config.apiUrl);
   }
 
-  getProductDetails(id: number): Observable<any> {
-    return this.http.get<any>(config.apiUrl + '/' + id);
+  getProductDetails(id: number): Observable<Product> {
+    return this.http.get<Product>(config.apiUrl + '/' + id);
   }
 }

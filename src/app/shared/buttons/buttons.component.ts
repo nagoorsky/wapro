@@ -3,7 +3,7 @@ import { DxTooltipModule } from 'devextreme-angular';
 
 @Component({
   standalone: true,
-  selector: 'buttons',
+  selector: 'wapro-buttons',
   templateUrl: './buttons.component.html',
   styleUrls: ['./buttons.component.scss'],
   imports: [DxTooltipModule],
@@ -12,7 +12,7 @@ import { DxTooltipModule } from 'devextreme-angular';
 export class ButtonsComponent {
   @Input() productId!: number;
 
-  mouseClick(event: any) {
+  handleMouseEvent(event: any) {
     event.stopPropagation();
   }
 }
