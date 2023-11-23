@@ -33,16 +33,16 @@
 .list-container {
   width: 60%;
   @media screen and (max-width: 768px) {
-    width: 100%;
+    width: 90%;
   }
-  @media screen and (min-width: 768px) and (max-width: 1024px) {
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
     width: 80%;
   }
   margin-left: auto;
   margin-right: auto;
   border-radius: 20px;
   border: 1px solid #ccc;
-  padding: 2px;
+  padding: 20px;
 }
 .list-header {
   display: flex;
@@ -52,6 +52,9 @@
 // fix this below to center tiles while maintaining responsiveness
 .tile-container {
   margin-left: calc(5% + 25px);
+  @media screen and (max-width: 768px) {
+    margin-left: calc(1% + 55px);
+  }
 }
 .loading {
   text-align: center;
@@ -131,6 +134,27 @@
       @media screen and (max-width: 1208px) {
         font-size: 16px !important;
       }
+    }
+  }
+}
+.custom-tile-view {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  ::ng-deep {
+    .item {
+      margin: 15px !important;
+      width: 220px !important;
+      height: 400px !important;
+      border: 1px solid #ccc !important;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc !important;
+    }
+    .item:hover {
+      background-color: #f5f3f3 !important;
     }
   }
 }

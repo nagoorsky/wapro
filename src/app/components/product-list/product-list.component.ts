@@ -32,7 +32,10 @@ export class ProductListComponent {
     { id: 'list', text: 'Lista' },
     { id: 'tiles', text: 'Kafelki' },
   ];
-  selectedView: string = 'list';
+  selectedView: string = 'tiles';
 
   productsList$: Observable<Product[]> = this.productService.getProductsList();
+
+  protected readonly trackById = (index: number, item: Product) =>
+    item?.productId;
 }

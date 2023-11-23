@@ -14,10 +14,16 @@
   }
   <!-- tiles view -->
   @case ('tiles'){
-  <dx-tile-view class="tile-container" [dataSource]="productList" [itemMargin]="25" [focusStateEnabled]="false"
+  <!-- <dx-tile-view class="tile-container" [dataSource]="productList" [itemMargin]="25" [focusStateEnabled]="false"
     direction="vertical" itemTemplate="tile" height="100%" [baseItemHeight]="400" [baseItemWidth]="220">
     <product-item *dxTemplate="let item of 'tile'" [product]="item" />
-  </dx-tile-view>
+  </dx-tile-view> -->
+  <div class="custom-tile-view">
+    <ng-container *ngFor="let product of productList">
+      <product-item [product]="product" />
+
+    </ng-container>
+  </div>
   }
   }
 </div>
