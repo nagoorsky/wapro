@@ -2,12 +2,12 @@
   <div class="details-header"><dx-button [routerLink]="['']" text="Powrót" />
     <wapro-buttons />
   </div>
-  <div class="product-details">
+  <section class="product-details">
     <div class="product-header">
       <div class="product-icon">
-        <div class="product-icon-text">{{product.productNameShortcut}}</div>
+        <span class="product-icon-text">{{product.productNameShortcut}}</span>
       </div>
-      <span class="product-name">{{product.productName}}</span>
+      <h2 class="product-name">{{product.productName}}</h2>
     </div>
 
     <div class="details-info">
@@ -19,7 +19,7 @@
         cena: <strong>{{ product.basePrice | waproCurrency }}</strong></p>
       <dx-button class="add-to-cart" text="Dodaj do koszyka" />
     </div>
-  </div>
+  </section>
 
   <div class="mobile-details">
     <ng-container *ngTemplateOutlet="variants" />
@@ -61,8 +61,7 @@
   <ng-template #variants>
     <p class="tab-header">Dostępne warianty</p>
     <p>{{product.variantDescription}}</p>
-    <dx-data-grid [dataSource]="product.variants" [columns]="variantColumns" [columnHidingEnabled]="true"
-      [showBorders]="true" [height]="200" [scrolling]="{showScrollbar: 'always'}" />
+    <dx-data-grid [dataSource]="product.variants" [columns]="variantColumns" [showBorders]="true" [height]="200" />
   </ng-template>
 
   <ng-template #description>

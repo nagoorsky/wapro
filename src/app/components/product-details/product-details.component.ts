@@ -11,8 +11,8 @@ import { Observable, tap } from 'rxjs';
 
 import { ProductService } from '../../services/products.service';
 import { ButtonsComponent } from '../../shared/buttons/buttons.component';
-import { Product } from '../../shared/interfaces';
 import { CurrencyPipe } from '../../shared/pipes/currency.pipe';
+import { Product } from '../../shared/interfaces/product.dto';
 
 @Component({
   standalone: true,
@@ -38,12 +38,11 @@ export class ProductDetailsComponent {
 
   variantColumns = [
     { dataField: 'variantName', caption: 'Nazwa', minWidth: 110 },
-    { dataField: 'variantCode', caption: 'Kod', width: 50 },
+    { dataField: 'variantCode', caption: 'Kod', minWidth: 55 },
     {
       dataField: 'maxNumberOfUsers',
       caption: 'Maks. liczba użytkowników',
-      width: 160,
-      hidingPriority: 0,
+      minWidth: 55,
     },
   ];
 
@@ -55,7 +54,7 @@ export class ProductDetailsComponent {
       })
     );
 
-  submitContactForm(e: any) {
+  submitContactForm(e: any): void {
     alert('Wysłano wiadomość');
     e.preventDefault();
   }

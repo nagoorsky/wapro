@@ -9,8 +9,8 @@ import { DxListModule, DxSelectBoxModule } from 'devextreme-angular';
 import { Observable } from 'rxjs';
 
 import { ProductService } from '../../services/products.service';
-import { Product } from '../../shared/interfaces';
 import { ProductItemComponent } from './product-item/product-item.component';
+import { Product } from '../../shared/interfaces/product.dto';
 
 @Component({
   standalone: true,
