@@ -14,9 +14,11 @@
       <span class="product-name">{{product.productName}}</span>
       <span class="product-name">{{product.productNameDescription}}</span>
       <p class="product-release-date">
-        data wydania wersji: <strong>{{ product.lastReleaseDate | date: 'yyyy-MM-dd'}}</strong></p>
+        data wydania wersji: <strong>{{ product.lastReleaseDate | date: 'yyyy-MM-dd'}}</strong>
+      </p>
       <p class="product-price">
-        cena: <strong>{{ product.basePrice | waproCurrency }}</strong></p>
+        cena: <strong>{{ product.basePrice | waproCurrency }}</strong>
+      </p>
       <dx-button class="add-to-cart" text="Dodaj do koszyka" />
     </div>
   </section>
@@ -83,12 +85,13 @@
     <p class="tab-header">Formularz zapytania o produkt</p>
     <form (submit)="submitContactForm($event)">
       <dx-form class="form">
-        <dxi-item dataField="Email"> <dxi-validation-rule type="required"
-            message="Email jest wymagany" /><dxi-validation-rule type="email"
-            message="Nieprawidłowy adres email" /></dxi-item>
-        <dxi-item dataField="Wiadomość" editorType="dxTextArea" [colSpan]="5" [height]="140"
-          [editorOptions]="{ height: 120}">
-          <dxi-validation-rule type="required" message="Wpisz swoją wiadomość" /> </dxi-item>
+        <dxi-item dataField="Email">
+          <dxi-validation-rule type="required" message="Email jest wymagany" />
+          <dxi-validation-rule type="email" message="Nieprawidłowy adres email" />
+        </dxi-item>
+        <dxi-item dataField="Wiadomość" editorType="dxTextArea" [colSpan]="4" [editorOptions]="{ height: 120}">
+          <dxi-validation-rule type="required" message="Wpisz swoją wiadomość" />
+        </dxi-item>
         <dxi-item itemType="button" class="send-msg-button" horizontalAlignment="center" [buttonOptions]="{ text: 'Wyślij'
           , useSubmitBehavior: true }" />
       </dx-form>
