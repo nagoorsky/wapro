@@ -14,6 +14,7 @@ import { ProductService } from '../../services/products.service';
 import { ButtonsComponent } from '../../shared/buttons/buttons.component';
 import { CurrencyPipe } from '../../shared/pipes/currency.pipe';
 import { Product } from '../../shared/interfaces/product.dto';
+import { DxiItemModule } from 'devextreme-angular/ui/nested';
 
 @Component({
   standalone: true,
@@ -30,6 +31,7 @@ import { Product } from '../../shared/interfaces/product.dto';
     ButtonsComponent,
     CurrencyPipe,
     DxTextAreaModule,
+    DxiItemModule,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
