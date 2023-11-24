@@ -34,7 +34,7 @@ export class ProductListComponent implements OnInit {
     { id: 'list', text: 'Lista' },
     { id: 'tiles', text: 'Kafelki' },
   ];
-  selectedView: string = 'tiles';
+  selectedView: string = 'list';
 
   selectView(event: any) {
     localStorage.setItem('view', event.selectedItem.id);
