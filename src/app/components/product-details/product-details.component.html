@@ -86,7 +86,7 @@
         <dxi-item dataField="Email"> <dxi-validation-rule type="required"
             message="Email jest wymagany" /><dxi-validation-rule type="email"
             message="Nieprawidłowy adres email" /></dxi-item>
-        <dxi-item dataField="Wiadomość" editorType="dxTextArea" [colSpan]="4" [editorOptions]="{ height: 120}">
+        <dxi-item dataField="Wiadomość" editorType="dxTextArea" [colCount]="4" [editorOptions]="{ height: 120}">
           <dxi-validation-rule type="required" message="Wpisz swoją wiadomość" /> </dxi-item>
         <dxi-item itemType="button" class="send-msg-button" horizontalAlignment="center" [buttonOptions]="{ text: 'Wyślij'
           , useSubmitBehavior: true }" />

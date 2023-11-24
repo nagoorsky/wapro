@@ -6,6 +6,7 @@ import {
   DxDataGridModule,
   DxFormModule,
   DxTabPanelModule,
+  DxTextAreaModule,
 } from 'devextreme-angular';
 import { Observable, tap } from 'rxjs';
 
@@ -28,6 +29,7 @@ import { Product } from '../../shared/interfaces/product.dto';
     DxFormModule,
     ButtonsComponent,
     CurrencyPipe,
+    DxTextAreaModule,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
