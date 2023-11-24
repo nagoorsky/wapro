@@ -1,5 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnInit,
+  inject,
+} from '@angular/core';
 import {
   DxListModule,
   DxSelectBoxModule,
@@ -20,13 +25,14 @@ import { ProductItemComponent } from './product-item/product-item.component';
     CommonModule,
     DxSelectBoxModule,
     DxListModule,
-    DxTileViewModule,
     ProductItemComponent,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProductListComponent {
+export class ProductListComponent implements OnInit {
   private readonly productService = inject(ProductService);
+
+  productsList$: Observable<Product[]> = this.productService.getProductsList();
 
   viewOptions = [
     { id: 'list', text: 'Lista' },
@@ -34,8 +40,14 @@ export class ProductListComponent {
   ];
   selectedView: string = 'tiles';
 
-  productsList$: Observable<Product[]> = this.productService.getProductsList();
+  selectView(event: any) {
+    localStorage.setItem('view', event.selectedItem.id);
+  }
 
-  protected readonly trackById = (index: number, item: Product) =>
-    item?.productId;
+  ngOnInit(): void {
+    const view = localStorage.getItem('view');
+    if (view) {
+      this.selectedView = view;
+    }
+  }
 }

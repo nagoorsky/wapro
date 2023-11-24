@@ -1,4 +1,6 @@
 import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import {
   DxButtonModule,
   DxDataGridModule,
@@ -6,13 +8,12 @@ import {
   DxTabPanelModule,
   DxTemplateModule,
 } from 'devextreme-angular';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 
 import { ProductService } from '../../services/products.service';
 import { ButtonsComponent } from '../../shared/buttons/buttons.component';
 import { Product } from '../../shared/interfaces';
-import { ActivatedRoute, RouterLink } from '@angular/router';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { CurrencyPipe } from '../../shared/pipes/currency.pipe';
 
 @Component({
   standalone: true,
@@ -28,6 +29,7 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
     DxFormModule,
     ButtonsComponent,
     DxTemplateModule,
+    CurrencyPipe,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -38,7 +40,7 @@ export class ProductDetailsComponent {
 
   variantColumns = [
     { dataField: 'variantName', caption: 'Nazwa', minWidth: 110 },
-    { dataField: 'variantCode', caption: 'Kod', width: 40 },
+    { dataField: 'variantCode', caption: 'Kod', width: 50 },
     {
       dataField: 'maxNumberOfUsers',
       caption: 'Maks. liczba użytkowników',
@@ -47,7 +49,11 @@ export class ProductDetailsComponent {
     },
   ];
 
-  product$: Observable<Product> = this.productService.getProductDetails(
-    this.productId
-  );
+  product$: Observable<Product> = this.productService
+    .getProductDetails(this.productId)
+    .pipe(
+      tap((product: Product) => {
+        this.productService.setPageTitle(product.productName);
+      })
+    );
 }

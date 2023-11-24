@@ -11,29 +11,11 @@
     background-color: #f5f3f3 !important;
     color: black !important;
   }
-  .dx-tile.dx-state-active {
-    background-color: white !important;
-    transform: none !important;
-    transition: none !important;
-    color: black !important;
-    box-shadow: 0 0 10px #ccc !important;
-    border: 1px solid rgba(221, 221, 221, 0.6) !important;
-  }
-  .dx-tile.dx-state-focused {
-    border: 1px solid rgba(221, 221, 221, 0.6) !important;
-  }
-  .dx-tile.dx-state-hover {
-    border: 1px solid rgba(221, 221, 221, 0.6) !important;
-    box-shadow: 0 0 10px #ccc !important;
-  }
-  .dx-tile {
-    color: black !important;
-  }
 }
 .list-container {
   width: 60%;
   @media screen and (max-width: 768px) {
-    width: 90%;
+    width: 100%;
   }
   @media screen and (min-width: 769px) and (max-width: 1024px) {
     width: 80%;
@@ -42,31 +24,36 @@
   margin-right: auto;
   border-radius: 20px;
   border: 1px solid #ccc;
-  padding: 20px;
 }
+
 .list-header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 10px;
 }
-// fix this below to center tiles while maintaining responsiveness
-.tile-container {
-  margin-left: calc(5% + 25px);
-  @media screen and (max-width: 768px) {
-    margin-left: calc(1% + 55px);
-  }
-}
+
 .loading {
   text-align: center;
 }
 
 ::ng-deep {
   .product-list {
+    padding: 10px !important;
+    .product-price {
+      margin: 0 !important;
+    }
+    .item-price {
+      align-items: flex-end !important;
+      @media screen and (max-width: 586px) {
+        align-items: center !important;
+        margin: 0 !important;
+      }
+    }
     .buttons {
       margin-top: auto;
       @media screen and (max-width: 586px) {
         margin-top: 10px;
-        margin-bottom: 20px;
       }
     }
 
@@ -113,9 +100,9 @@
     .product-header {
       align-items: flex-start !important;
       margin-right: auto !important;
-      gap: 0px !important;
+      gap: 0 !important;
       @media screen and (max-width: 586px) {
-        margin: 0px !important;
+        margin: 0 !important;
         align-items: center !important;
       }
     }
@@ -141,20 +128,41 @@
   margin-left: auto;
   margin-right: auto;
   display: flex;
+  height: auto;
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
   ::ng-deep {
+    .custom-item {
+      margin-left: auto;
+      margin-right: auto;
+      width: 25%;
+      @media screen and (min-width: 1025px) and (max-width: 1440px) {
+        width: 33%;
+      }
+      @media screen and (min-width: 769px) and (max-width: 1024px) {
+        width: 50%;
+      }
+      @media screen and (min-width: 657px) and (max-width: 768px) {
+        width: 33%;
+      }
+      @media screen and (min-width: 456px) and (max-width: 656px) {
+        width: 50%;
+      }
+      @media screen and (max-width: 455px) {
+        width: 100%;
+      }
+    }
     .item {
-      margin: 15px !important;
-      width: 220px !important;
-      height: 400px !important;
-      border: 1px solid #ccc !important;
+      margin-left: auto;
+      margin-right: auto;
+      margin: 15px;
+      border: 1px solid #ccc;
       border-radius: 10px;
-      box-shadow: 0 0 10px #ccc !important;
+      box-shadow: 0 0 10px #ccc;
     }
     .item:hover {
-      background-color: #f5f3f3 !important;
+      background-color: #f5f3f3;
     }
   }
 }

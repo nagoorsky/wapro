@@ -5,6 +5,7 @@ export const routes: Routes = [
   {
     path: '',
     component: ProductListComponent,
+    title: 'Lista produktów | Wapro',
   },
   {
     path: 'product/:id',

@@ -16,7 +16,7 @@
       <p class="product-release-date">
         data wydania wersji: <strong>{{ product.lastReleaseDate | date: 'yyyy-MM-dd'}}</strong></p>
       <p class="product-price">
-        cena: <strong>{{ product.basePrice | number:'1.2-2'}}</strong></p>
+        cena: <strong>{{ product.basePrice | waproCurrency }}</strong></p>
       <dx-button class="add-to-cart" text="Dodaj do koszyka" />
     </div>
   </div>
@@ -28,7 +28,7 @@
     <ng-container *ngTemplateOutlet="delivery" />
     <ng-container *ngTemplateOutlet="ask" />
   </div>
-  <dx-tab-panel class="tab-panel" [animationEnabled]="true" [swipeEnabled]="true" [focusStateEnabled]="false">
+  <dx-tab-panel class="tab-panel" [animationEnabled]="true" [focusStateEnabled]="false">
 
     <!-- Variants -->
     <dxi-item title="Dostępne warianty" class="product-variants tab-item">
@@ -86,9 +86,10 @@
       <dxi-item dataField="Email" />
       <dxi-item dataField="Wiadomość" editorType="dxTextArea" [colSpan]="4" [editorOptions]="{ height: 120}" />
     </dx-form>
-    <dx-button class="send-msg-button" text="Wyślij" />
+    <dx-button icon="email" class="send-msg-button" text="Wyślij" />
   </ng-template>
 </div>
+
 
 <ng-template #loading>
   <div class="loading">

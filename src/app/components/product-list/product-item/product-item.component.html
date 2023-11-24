@@ -12,7 +12,7 @@
     cena: <span
       [ngStyle]="{'background-color': product.basePrice < 500 && product.basePrice !== 500 ? 'green' : 'orange'}"
       class="product-price">
-      {{ product.basePrice }}
+      {{ product.basePrice | waproCurrency}}
     </span>
 
     <dx-button class="add-to-cart" text="Dodaj do koszyka" (click)="handleMouseEvent($event)" />
