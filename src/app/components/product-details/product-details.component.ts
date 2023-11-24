@@ -6,7 +6,6 @@ import {
   DxDataGridModule,
   DxFormModule,
   DxTabPanelModule,
-  DxTemplateModule,
 } from 'devextreme-angular';
 import { Observable, tap } from 'rxjs';
 
@@ -28,7 +27,6 @@ import { CurrencyPipe } from '../../shared/pipes/currency.pipe';
     DxDataGridModule,
     DxFormModule,
     ButtonsComponent,
-    DxTemplateModule,
     CurrencyPipe,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -56,4 +54,9 @@ export class ProductDetailsComponent {
         this.productService.setPageTitle(product.productName);
       })
     );
+
+  submitContactForm(e: any) {
+    alert('Wysłano wiadomość');
+    e.preventDefault();
+  }
 }

@@ -2,14 +2,10 @@ import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
-  OnInit,
   inject,
+  OnInit,
 } from '@angular/core';
-import {
-  DxListModule,
-  DxSelectBoxModule,
-  DxTileViewModule,
-} from 'devextreme-angular';
+import { DxListModule, DxSelectBoxModule } from 'devextreme-angular';
 import { Observable } from 'rxjs';
 
 import { ProductService } from '../../services/products.service';
